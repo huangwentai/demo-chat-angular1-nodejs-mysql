@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app="myApp" ng-controller="userCtrl">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Socket.IO chat</title>
+  <script src="assets/js/angular.min.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/socket.io-1.4.5.js"></script>
+
+  <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      .form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      .form input { border: 0; padding: 10px; width: 79%; margin-right: .5%; }
+      .form button { width: 20%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+  </style>
+</head>
+<body ng-controller="chatCtrl">
+    <ul id="messages">
+        <li ng-repeat='x1 in messages track by $index'>{{x1}}</li>
+    </ul>
+    <div class="form">
+      <input id="m" autocomplete="off" ng-model="input1"/><button ng-click="send()">Send</button>
+  </div>
+</body>
+<script >
+
+    myModule.controller('chatCtrl',function($scope, $http , $timeout) {
+        var socket = io();
+        $scope.messages=[];
+        $scope.input1='';
+        socket.emit('subscribe', "tiger");
+        socket.emit('subscribe', "tiger2");
+        $scope.send=function(){
+            // socket.emit('chat message', $scope.input1);
+            socket.emit('say to someone', "tiger" ,$scope.input1);
+            $scope.messages.push($scope.input1);
+            $scope.input1='';
+        }
+        socket.on('chat message', function(msg){
+            $timeout(function(){
+                $scope.messages.push(msg);
+            },1)            
+        });
+        socket.on('say to someone', function(msg){
+            console.log(msg)
+            $timeout(function(){
+                 $scope.messages.push(msg);
+            },1)
+        });
+    })
+</script>
+</html>

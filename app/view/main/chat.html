@@ -1,0 +1,53 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="row">
+			<div class="navbar-header">
+		    	<a class="navbar-brand glyphicon glyphicon-arrow-left" style="color:#3E362B;" ui-sref="home.talk">
+		    	</a>
+		    	<h4 class="navbar-text">{{friend_name}}</h4>
+		    </div>
+		</div>
+	</div>
+</nav>
+<main class="my-main">
+	<div class="container">
+		<div class="comment-list styled clearfix" style="padding-top:20px;">
+		    <ol>
+		        <li class="comment" ng-class="{true: 'me', false: ''}[x.name==name]" ng-repeat='x in messages track by $index'>
+		            <div class="comment-body">
+		                <div class="comment-arrow"></div>
+		                <div class="comment-avatar">
+		                    <div class="avatar">
+		                        <img ng-if='x.name==name' src="assets/images/temp/avatar.png" alt="" />
+		                        <img ng-if='x.name!=name' src="assets/images/temp/avatar3.png" alt="" />
+		                    </div>
+		                </div>
+		                <div class="comment-text">
+		                    <div class="comment-author clearfix">
+		                        <a href="#" class="link-author">{{x.name}}</a>
+		                    </div>
+		                    <div class="comment-entry">
+		                        {{x.msg}}
+		                    </div>
+		                </div>
+		                <div class="clear"></div>
+		            </div>
+		        </li>
+		    </ol>
+		</div>
+	</div>
+</main>
+<div class="chat-input">
+	<div class="widget-container container widget_search styled boxed boxed-cream" style="margin-bottom:0;padding:0;">
+	    <div class="inner">
+            <div class="clearfix">
+                <span class="btn">
+                    <input type="button" value="Send" ng-click="send()" />
+                </span>
+                <div class="field_text">
+                    <input name="search2" value="" type="text" ng-keyup="myKeyup($event)" ng-model="input1" placeholder="Type word here" />
+                </div>
+            </div>
+	    </div>
+	</div>
+</div>

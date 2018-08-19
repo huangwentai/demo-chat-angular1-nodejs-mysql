@@ -1,0 +1,43 @@
+	
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="row">
+				<div class="navbar-header pull-left">
+			    	<a class="navbar-brand navbar-brand glyphicon glyphicon-arrow-left" onclick="history.back()">			    		
+			    	</a>
+			    </div>
+                <div class="" role="search" style="margin-left: 50px;">
+                    <div class="widget-container container widget_search styled boxed boxed-cream" style="margin-bottom:0;padding:0;background:none;box-shadow:none;padding-top: 8px;padding-right:10px;">
+                        <div class="inner" style="margin-bottom:0;padding:0;">
+                            <div class="clearfix">
+                                <span class="btn" ng-click="search()">
+                                    <input type="button" value="Search"  />
+                                </span>
+                                <div class="field_text">
+                                    <input value="" type="text" ng-keyup="myKeyup($event)" ng-model="searchId" placeholder="Type word here" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</nav>
+	<main class="my-main">
+		<div class="container">
+            <div ng-repeat="x in userData" class="widget-container widget_avatar row my_widget_avatar boxed boxed-cream">
+                <div class="inner clearfix">
+                    <div class="media">
+                        <a class="media-left media-middle avatar" style="padding-right:0;" href="#">
+                            <img src="assets/images/temp/avatar.png" alt="...">
+                        </a>
+                        <div class="media-body media-middle">
+                            <h5>{{x.name}}</h5>
+                            <span class="subtitle">No. : {{x.loginId}}</span>
+                        </div>
+                        <a ng-click="add(x.loginId)" style="position:absolute;right:10px;top:50%;margin-top:-15px;" class="btn btn-follow"><span>Add</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</main>

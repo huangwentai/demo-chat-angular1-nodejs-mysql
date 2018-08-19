@@ -1,0 +1,15 @@
+<div class="container">
+	<div ng-repeat="(key,x) in message" class="widget-container widget_avatar row my_widget_avatar boxed boxed-cream">
+	    <div class="inner clearfix">
+	        <div class="media">
+				<a class="media-left media-middle avatar" style="padding-right:0;" href="#">
+					<img src="assets/images/temp/avatar.png" alt="...">
+				</a>
+				<div class="media-body media-middle">
+					<h5>{{key}}</h5>
+        			<span class="subtitle">{{x[x.length-1].msg}}</span>
+				</div>
+			</div>
+	    </div>
+	</div>
+</div>

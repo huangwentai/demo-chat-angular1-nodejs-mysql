@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" ng-app="myApp" ng-controller="userCtrl" style="height:100%;">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Login or Register</title>
+
+<!-- main JS libs -->
+<script src="assets/js/angular.min.js"></script>
+<script src="assets/js/libs/modernizr.min.js"></script>
+<script src="assets/js/libs/jquery-1.10.0.js"></script>
+<script src="assets/js/libs/jquery-ui.min.js"></script>
+<script src="assets/js/libs/bootstrap.min.js"></script>
+
+<!-- Style CSS -->
+<link href="assets/css/bootstrap.css" media="screen" rel="stylesheet">
+<link href="assets/css/bootstrap-theme.min.css" media="screen" rel="stylesheet">
+<link href="assets/css/style.css" media="screen" rel="stylesheet">
+<link href="assets/css/common.css" media="screen" rel="stylesheet">
+<!-- scripts -->
+<script src="assets/js/jquery.powerful-placeholder.min.js"></script>
+<script src="assets/js/jquery.customInput.js"></script>
+<script type="text/javascript" src="assets/js/custom.js"></script>
+<script src="assets/js/general.js"></script>
+<script src="assets/js/common.js"></script>
+<!-- Include all needed stylesheets and scripts here -->
+<script>
+	myModule.controller('indexCtrl',function($scope, $http) {
+		$http({
+			method: 'GET',
+			cache : false,
+			url:$scope.domain+"session"
+		})
+		.success(function(data){
+			if(data.name)
+				$scope.name=data.name;
+			else
+				window.location.href="loginOrRegist.html";
+		})
+		.error(function(data,header,config,status){
+			window.location.href="not_found.html";
+		});
+			
+	})
+</script>
+</head>
+
+<body style="height:100%;" ng-controller="indexCtrl">
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="row">
+				<div class="navbar-header">
+			    	<a class="navbar-brand" href="#">
+			    		<h4>talk</h4>
+			    	</a>
+			    </div>
+			</div>
+		</div>
+	</nav>
+	<main class="my-main">
+		<div class="container">
+			<div class="row my-tab-content">
+				<div class="tab-pane fade in active" id="events" style="padding-top:20px;">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<div class="media">
+								<a class="media-left media-middle" href="#">
+									<img data-src="..." alt="...">
+								</a>
+								<div class="media-body">
+									<h4 class="media-heading">{{name}}</h4>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</main>
+    <nav class="navbar navbar-default navbar-fixed-bottom my-bottom-nav">
+        <div class="container">
+        	<div class="row">
+                <ul class="nav nav-tabs nav-justified ">
+                	<li class="" align="center">
+                		<a class="" href="#"><h4><i class="glyphicon glyphicon-comment"></i></h4><h4>message</h4></a>
+                	</li >
+                	<li class=" active" align="center" >
+                		<a class="" href="#"><h4><i class="glyphicon glyphicon-book"></i></h4><h4>friend</h4></a>
+                	</li>
+                	<li class="" align="center">
+                		<a class="" href="#"><h4><i class="glyphicon glyphicon-user"></i></h4><h4>me</h4></a>
+                	</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>

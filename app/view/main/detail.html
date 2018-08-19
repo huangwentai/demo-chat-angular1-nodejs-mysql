@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="row">
+			<div class="navbar-header">
+		    	<a class="navbar-brand glyphicon glyphicon-arrow-left" style="color:#3E362B;" onclick="history.back();">
+		    	</a>
+		    	<h4 class="navbar-text">Detail</h4>
+		    </div>
+		</div>
+	</div>
+</nav>
+<main class="my-main">
+	<div class="container">
+		<div style="margin-top:20px;" class="widget-container widget_avatar row my_widget_avatar boxed boxed-cream">
+	        <div class="inner clearfix">
+	            <div class="media">
+	                <a class="media-left media-middle avatar me" style="padding-right:0;" href="#">
+	                    <img src="assets/images/temp/avatar.png" alt="...">
+	                </a>
+	                <div class="media-body media-middle">
+	                    <h4 class="media-heading">{{detail_name}}</h4>
+	                    <span class="subtitle" style="font-size:14px;" >No. : {{detail_id}}</span>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="text-center">
+			<a style="margin-top:20px;width: 100%;max-width:400px;" ui-sref="chat({name:detail_name,id:detail_id})" class="btn btn-large btn-green"><span>Send Message</span></a>
+	    </div>
+	</div>
+</main>

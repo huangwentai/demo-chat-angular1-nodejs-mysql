@@ -1,0 +1,14 @@
+<div class="container">
+	<div ui-sref="detail({name:x.name,id:x.loginId})" ng-repeat="x in friendList" class="widget-container widget_avatar row my_widget_avatar boxed boxed-cream">
+	    <div class="inner clearfix">
+	        <div class="media">
+				<a class="media-left media-middle avatar friend" style="padding-right:0;" href="#">
+					<img src="assets/images/temp/avatar.png" alt="...">
+				</a>
+				<div class="media-body media-middle">
+					<h4 style="margin:0">{{x.name}}</h4>
+				</div>
+			</div>
+	    </div>
+	</div>
+</div>
